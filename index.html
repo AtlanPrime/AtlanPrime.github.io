@@ -1,45 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Astile Kuriakose</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/icomoon-free.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
-	<link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlanPrime | Astile Kuriakose</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        nav {
+            display: flex; justify-content: center; align-items: center;
+            padding: 1rem 5%; background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px); position: fixed; width: 100%; z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo { 
+            font-size: 0.85rem; 
+            color: #94a3b8; 
+            text-align: center;
+            font-style: italic;
+        }
+        .logo span { color: #38bdf8; font-weight: 800; font-style: normal; }
+
+        main { flex: 1; } /* Pushes footer to the bottom */
+
+        .hero {
+            min-height: 90vh;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 120px 20px 40px 20px;
+        }
+
+        .profile-container {
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        .profile-pic {
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            border: 4px solid #38bdf8;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+        }
+
+        .name-title {
+            margin-top: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            background: linear-gradient(to right, #ffffff, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .button-group { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center;}
+
+        .cta-primary, .cta-secondary {
+            text-decoration: none; padding: 14px 28px; border-radius: 10px;
+            font-weight: bold; transition: all 0.2s ease; font-size: 0.9rem;
+            position: relative; overflow: hidden;
+            display: inline-block;
+        }
+
+        .cta-primary { background: #38bdf8; color: #0f172a; border: none; }
+        .cta-secondary { border: 1px solid #38bdf8; color: #38bdf8; background: transparent; }
+
+        .cta-primary:hover { background: #7dd3fc; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
+        .cta-secondary:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-3px); }
+
+        .cta-primary:active, .cta-secondary:active { transform: scale(0.92); }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .contact-item {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-item h3 { font-size: 0.7rem; color: #38bdf8; text-transform: uppercase; margin-bottom: 0.5rem; }
+
+        /* FOOTER STYLE */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-	<div id="particles-js">
-		<div class="main-content">
-			<figure>
-				<img src="images/profile_img.ico" alt="Astile Kuriakose">
-			</figure>
-			<h1>Astile Kuriakose</h1>
-			<h2>Tech Enthusiast fiddling with biotechnology </h2>
-			<h3>
-				Linux and Android Enthusiast<br><br>
-				M.Sc. Biotechnology Graduate<br><br>
-				Experencied molecular analyst<br><br>
-				Working as Skilled Assistant at CRS Pampadumpara<br><br>
-				India - Kerala
-			</h3>
-			<ul class="social">
-				<li><a href="https://github.com/AtlanPrime"><i class="icon icon-github"></i></a></li>
-				<li><a href="https://twitter.com/atlanprime" target="_blank"><i class="icon icon-twitter"></i></a></li>
-				<li><a href="https://forum.xda-developers.com/member.php?u=10496699" target="_blank">XDA</a></li>
-			</ul>
-		</div>
-		<footer id="footer">
-			&copy; 2023 Astile Kuriakose
-<br>
-<img align="center" src="https://komarev.com/ghpvc/?username=AtlanPrime&style=flat-square" />			
-		</footer>
-	</div>
-	<script src="js/particles.js"></script>
-	<script src="js/app.js"></script>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <nav>
+        <div class="logo">"Life is like a game of <span>Chess</span>... I don't know how to play <span>Chess</span>."</div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="profile-container">
+                <img src="https://scontent.fcok7-1.fna.fbcdn.net/v/t39.30808-6/243016041_115634454192502_6452587409206827151_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=8csa4ncR6e8Q7kNvwFruDar&_nc_oc=AdmVQx8wWBT7-1G6GEbsmhUHVTrNvG-LrctrcRjTjADciwRYAtuTKA2W-iQfeFlYGw0&_nc_zt=23&_nc_ht=scontent.fcok7-1.fna&_nc_gid=YTT-Xz7LIJ07ixkVh0ypJQ&oh=00_AfqxsMlJsIjRDS-nWaYzZ67VhPVQrC4Bg73SYRN9rvpoeg&oe=6966D286" alt="Astile Kuriakose" class="profile-pic">
+                <div class="name-title">Astile Kuriakose</div>
+            </div>
+
+            <h1>Bits. Bio. Banking.</h1>
+            <p style="max-width: 650px; color: #94a3b8;">Tech enthusiast turned biotech lab rat, finally evolving into the world of high-finance.</p>
+            
+            <div class="button-group">
+                <a href="https://in.linkedin.com/in/astile-kuriakose" target="_blank" class="cta-primary">LinkedIn Profile</a>
+                <a href="https://github.com/AtlanPrime" target="_blank" class="cta-secondary">GitHub (ex AOSP BuildBot)</a>
+            </div>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Direct Email</h3>
+                    <p>kuriakoseastile@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Current Base</h3>
+                    <p>Kerala, India</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Core Specialty</h3>
+                    <p>Financial Strategy & Data</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Astile Kuriakose. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Update Year Automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Background Animation Logic
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        const mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        class Particle {
+            constructor(x, y, dx, dy, size) {
+                this.x = x;
+                this.y = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.size = size;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+                ctx.fill();
+            }
+
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+                if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+                
+                this.x += this.dx;
+                this.y += this.dy;
+
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                
+                if (distance < mouse.radius) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= forceDirectionX * force * 8;
+                    this.y -= forceDirectionY * force * 8;
+                }
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.width * canvas.height) / 10000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let dx = (Math.random() * 1) - 0.5;
+                let dy = (Math.random() * 1) - 0.5;
+                particlesArray.push(new Particle(x, y, dx, dy, size));
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.3)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
 </body>
 </html>
-
